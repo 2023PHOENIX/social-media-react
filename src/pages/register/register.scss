@@ -1,0 +1,89 @@
+.login {
+  height: 100vh;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 50%;
+    border-radius: 5px;
+    display: flex;
+    background-color: white;
+    min-height: 600px;
+    max-height: 1vh;
+    overflow: hidden;
+
+    .left {
+      flex: 1;
+
+
+      background: linear-gradient(rgba(39, 11, 96, 0.4), rgba(39, 11, 96, 0.7)), url("https://i.pinimg.com/originals/64/89/e0/6489e0cc228eeef1fb7ba171cd30ce44.jpg") center;
+
+      background-size: cover;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      h1 {
+        font-size: 80px;
+        line-height: 100px;
+      }
+
+      p {
+        font-weight: light;
+        font-size: 12px;
+      }
+
+      span {
+        font-size: 12px;
+      }
+
+      button {
+        background-color: white;
+        border-radius: 5px;
+        width: 50%;
+        color: purple;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+
+      h1 {
+        color: #555;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+          padding: 20px 10px;
+          border: none;
+          border-bottom: 1px solid lightgrey;
+        }
+
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          background-color: #938eef;
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
