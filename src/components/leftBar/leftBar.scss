@@ -1,0 +1,50 @@
+.leftbar{
+    flex : 2;
+    .container{
+        padding: 20px;
+        hr{
+            margin : 20px 0;
+            border : none;
+            height : 0.5px; 
+            background-color: lightgray;
+        }
+        .menu{
+        
+            display: flex;
+            flex-direction: column;
+            gap : 15px;
+            span{
+                font-size: 12px;
+            }
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                img{
+                    height : 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+
+                }
+                span{
+                    font-size: 14px;
+                }
+            }
+            .item{
+                 display: flex;
+                 align-items: center;
+                 gap: 10px;
+                 img{
+                    height : 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;;
+                 }
+                span{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
