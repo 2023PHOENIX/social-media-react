@@ -4,7 +4,7 @@ import "./register.scss";
 
 function Register() {
     return (
-        <div className='login'>
+        <div className='signup'>
             <div className='card'>
 
                 <div className='right'>
