@@ -30,7 +30,7 @@ function NavBar() {
             <MailOutlinedIcon/>
             <NotificationsOutlinedIcon/>
             <div className='user'>
-                <img src='#' alt='img'/>
+                <img src='https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg' alt='img'/>
                 <span> Abhi S.</span>
             </div>
         </div>

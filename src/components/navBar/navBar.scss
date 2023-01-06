@@ -1,26 +1,32 @@
 .navbar{
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid lightgray;
     height: 50px;
+    position: sticky;
+    // BUG: not able to make navbar and left bar sticky 
     .left{
     align-items: center;
     display: flex;
     gap : 30px;
+
         span{
             font-weight: bold;
             color : darkblue;
             font-size: 20px;
             gap : 20px;
         }
+
         .search{
             display: flex;
             align-items: center;
             gap : 10px;
             border : 1px solid lightgray;
             padding : 5px;
+
             input{
                 border : none;
                 width: 500px;
