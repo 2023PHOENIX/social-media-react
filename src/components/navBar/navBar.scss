@@ -1,57 +1,65 @@
-.navbar{
-    
+@import "../../styles.scss";
+.navbar {
+  @include themify($themes) {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid themed(border);
+
+
+    background-color: themed("bg");
+    color : themed('textColor');
+    
+    
     height: 50px;
     position: sticky;
-    // BUG: not able to make navbar and left bar sticky 
-    .left{
-    align-items: center;
-    display: flex;
-    gap : 30px;
+    // BUG: not able to make navbar and left bar sticky
+    .left {
+      align-items: center;
+      display: flex;
+      gap: 30px;
 
-        span{
-            font-weight: bold;
-            color : darkblue;
-            font-size: 20px;
-            gap : 20px;
-        }
+      span {
+        font-weight: bold;
+        color: themed(logo);
+        font-size: 20px;
+        gap: 20px;
+      }
 
-        .search{
-            display: flex;
-            align-items: center;
-            gap : 10px;
-            border : 1px solid lightgray;
-            padding : 5px;
-
-            input{
-                border : none;
-                width: 500px;
-               
-            }
-        }
-    }
-    .right{
+      .search {
         display: flex;
-    align-items: center;
-        gap : 20px;
-        .user{
-            display: flex;
-            align-items: center;
-            gap : 10px;
-            font-weight: 500;
-            img{
-                height : 30px;
-                width : 30px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-            span{
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed(border);
+        padding: 5px;
 
-            }
+        input {
+          border: none;
+          width: 500px;
+          background: transparent;
+          color : themed(textColor)
         }
+      }
     }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        img {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        span {
+        }
+      }
+    }
+  }
 }
