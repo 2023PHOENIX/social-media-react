@@ -1,0 +1,49 @@
+.Stories{
+    display: flex;
+    gap : 15px;
+    height : 250px;
+    margin-bottom: 30px;
+    margin-top : 10px;
+    
+    .story{
+        flex : 1;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        img {
+            height : 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        span{
+            position: absolute;
+
+            bottom: 10px;
+            left: 10px;
+            color : white;
+            font-weight: 500;
+        }
+
+        button{
+            position: absolute;
+            left : 10px;
+            bottom: 40px;
+            background-color: rgb(76, 76, 229);
+            border : none;
+            border-radius: 50%;
+            color : white;
+            width: 40px;
+            height : 40px;
+            cursor: pointer;
+            font-size: 30px;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+            
+        }
+        button:hover{
+            transform: scale(1.2);
+        }
+    }
+}
