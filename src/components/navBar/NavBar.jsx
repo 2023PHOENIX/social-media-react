@@ -12,11 +12,13 @@ import {Link} from 'react-router-dom';
 import {Home, Search} from '@mui/icons-material';
 import "./navBar.scss";
 import {DarkModeContext} from "../../context/darkModeContext.jsx";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 
 function NavBar() {
 
     const {darkMode,toggle} = useContext(DarkModeContext);
+    const {currentUser} = useContext(AuthContext);
     const handleDarkMode = () => {
         toggle();
     }
@@ -39,8 +41,8 @@ function NavBar() {
                 <MailOutlinedIcon/>
                 <NotificationsOutlinedIcon/>
                 <div className='user'>
-                    <img src='https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg' alt='img'/>
-                    <span> Abhi S.</span>
+                    <img src={currentUser.profilePicture} alt='img'/>
+                    <span> {currentUser.name}</span>
                 </div>
             </div>
         </div>
