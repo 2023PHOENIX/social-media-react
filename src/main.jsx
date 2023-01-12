@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <DarkModeContextProvider>
             <AuthContextProvider>
                 <App/>
-                
+
             </AuthContextProvider>
         </DarkModeContextProvider>
 

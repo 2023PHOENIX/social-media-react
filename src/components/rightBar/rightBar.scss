@@ -1,6 +1,12 @@
 @import "../../styles.scss";
+
 .rightbar {
   @include themify($themes) {
+    @include mobile {
+      display: none;
+    }@include tablet {
+      display: none;
+    }
     font-size: 0.66rem;
     flex: 3;
     overflow: scroll;
@@ -9,7 +15,7 @@
     padding: 5px;
     background-color: themed("bg");
     color: themed("textColor");
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -18,13 +24,16 @@
 
     .container {
       width: 100%;
+
       .item {
         background-color: themed("bgSoft");
         margin-bottom: 20px;
         padding: 5px 20px;
+
         span {
           color: themed(textColorsoft);
         }
+
         .user {
           margin: 20px 0;
           display: flex;
@@ -37,12 +46,14 @@
             gap: 10px;
             position: relative;
             align-items: center;
+
             img {
               height: 40px;
               width: 40px;
               border-radius: 50%;
               object-fit: cover;
             }
+
             .online {
               width: 12px;
               height: 12px;
@@ -52,18 +63,22 @@
               top: 0px;
               left: 30px;
             }
+
             p {
               color: gray;
             }
+
             span {
               font-weight: bold;
               color: themed("textColor");
             }
           }
+
           .buttons {
             display: flex;
             justify-content: space-between;
             gap: 10px;
+
             button {
               border: none;
               padding: 5px;
@@ -73,6 +88,7 @@
               &:first-child {
                 background-color: blue;
               }
+
               &:last-child {
                 background-color: red;
               }

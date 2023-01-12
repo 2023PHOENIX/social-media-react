@@ -38,7 +38,13 @@
           border: none;
           width: 500px;
           background: transparent;
-          color : themed(textColor)
+          color : themed(textColor);
+          @include mobile{
+            display : none;
+          }
+          @include tablet{
+            width: 250px;
+          }
         }
       }
     }
@@ -51,6 +57,9 @@
         align-items: center;
         gap: 10px;
         font-weight: 500;
+        @include tablet{
+          display: none;
+        }
         img {
           height: 30px;
           width: 30px;

@@ -1,49 +1,82 @@
-.Stories{
-    display: flex;
-    gap : 15px;
-    height : 250px;
-    margin-bottom: 30px;
-    margin-top : 10px;
-    
-    .story{
-        flex : 1;
-        border-radius: 10px;
-        overflow: hidden;
-        position: relative;
-        img {
-            height : 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-        span{
-            position: absolute;
+@import "../../styles.scss";
 
-            bottom: 10px;
-            left: 10px;
-            color : white;
-            font-weight: 500;
-        }
+.Stories {
+  display: flex;
+  gap: 15px;
+  height: 250px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 
-        button{
-            position: absolute;
-            left : 10px;
-            bottom: 40px;
-            background-color: rgb(76, 76, 229);
-            border : none;
-            border-radius: 50%;
-            color : white;
-            width: 40px;
-            height : 40px;
-            cursor: pointer;
-            font-size: 30px;
-            display: flex;
+  @include mobile {
+    height: 50px;
+    justify-content: space-around;
 
-            align-items: center;
-            justify-content: center;
-            
-        }
-        button:hover{
-            transform: scale(1.2);
-        }
+  }
+  @include tablet{
+    height : 150px;
+    gap : 20px;
+  }
+  .story {
+    flex: 1;
+    @include mobile {
+      width: 50px;
+      height: 50px;
+      flex: none;
+      border-radius: 50%;
     }
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-weight: 500;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    button {
+      position: absolute;
+      left: 10px;
+      bottom: 40px;
+      background-color: rgb(76, 76, 229);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 30px;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+      @include mobile {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+      }
+
+    }
+
+    button:hover {
+      transform: scale(1.2);
+    }
+
+
+  }
 }
