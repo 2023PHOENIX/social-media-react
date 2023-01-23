@@ -1,27 +1,38 @@
-import React, {createContext, useContext, useState} from 'react'
-import {Link} from 'react-router-dom';
+import React, { useContext, useState} from 'react'
+import {Link,useNavigate} from 'react-router-dom';
 import "./login.scss";
 import {AuthContext} from "../../context/AuthContext.jsx";
-
 function Login() {
     const {userLogin} = useContext(AuthContext);
 
     const [currentUser, setCurrentUser] = useState(
-            JSON.parse(localStorage.getItem('currentUser')) || null
+        JSON.parse(localStorage.getItem('currentUser')) || null
     );
+    const [err, setErr] = useState(null);
 
-    const login = () => {
-        userLogin({
-            id: 1,
-            name: "abhishek",
-            profilePicture: "https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-        })
+    const navigate = useNavigate();
+
+
+    const handleUserDetails = (e) => {
+        setCurrentUser((prev) => ({
+            ...prev, [e.target.name]: e.target.value
+        }))
     }
 
+    const handleUserDetailsSubmit = async (e) => {
 
-    const handleSubmit = (e) => {
+
         e.preventDefault();
-        login();
+
+        try {
+            await userLogin(currentUser);
+
+            return navigate("/");
+
+        } catch (e) {
+            setErr(e);
+        }
+
 
     }
 
@@ -42,11 +53,12 @@ function Login() {
                 </div>
                 <div className='right'>
                     <h1> Login</h1>
-                    <form onSubmit={handleSubmit}>
-                        <input type='text' name='username' placeholder='Username'></input>
-                        <input type='password' name='password' placeholder='Password'></input>
+                    <form>
+                        <input type='text' name='username' placeholder='Username' onChange={handleUserDetails}></input>
+                        <input type='password' name='password' placeholder='Password'
+                               onChange={handleUserDetails}></input>
 
-                        <button type='submit'> Login</button>
+                        <button type='submit' onClick={handleUserDetailsSubmit}> Login</button>
                     </form>
                 </div>
             </div>

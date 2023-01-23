@@ -1,8 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
+import {Link,useNavigate } from 'react-router-dom';
 import "./register.scss";
+import axios from "axios";
 
 function Register() {
+    const [inputDetails, setInputDetails] = useState({
+        username: "",
+        email: "",
+        password: "",
+        name: ""
+    });
+
+    const navigate = useNavigate();
+
+    const [err, setErr] = useState(null);
+
+    const handleInputChange = (e) => {
+        setInputDetails((prev) => ({...prev, [e.target.name]: e.target.value}));
+    }
+    const submitInputDetails = async (e) => {
+        e.preventDefault();
+
+        try {
+
+            await axios.post("http://localhost:8000/api/auth/register", inputDetails);
+            return navigate('/login');
+
+        } catch (e) {
+            setErr(e.response.data);
+        }
+
+    }
     return (
         <div className='signup'>
             <div className='card'>
@@ -10,11 +38,14 @@ function Register() {
                 <div className='right'>
                     <h1> Register</h1>
                     <form>
-                        <input type='text' placeholder='Username'></input>
-                        <input type='password' placeholder='Password'></input>
-                        <input type='password' placeholder='confirm Password'></input>
-                        <input type='password' placeholder='confirm Password'></input>
-                        <button> Signup</button>
+                        <input type='text' placeholder='Username' name="username" onChange={handleInputChange}></input>
+                        <input type='text' placeholder='name' name="name" onChange={handleInputChange}></input>
+                        <input type='text' placeholder='email' name="email" onChange={handleInputChange}></input>
+                        <input type='password' placeholder='Password' name="password"
+                               onChange={handleInputChange}></input>
+                        {err && <p>{err}</p>}
+
+                        <button onClick={submitInputDetails}> Signup</button>
                     </form>
                 </div>
                 <div className='left'>

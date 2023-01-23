@@ -11,20 +11,23 @@ function Post({post}) {
 
     const [Liked,setLiked] = useState(false);
     const [commentBar,setCommentBar] = useState(false);
-   
+
+
+
+
     return (
         <div className="post">
             <div className='container'>
 
                 <div className="user">
                     <div className="userInfo">
-                        <img src={post.profilePicture} alt=""/>
+                        <img src={post.profilePicture} alt="NULL"/>
                         <div className="details">
                             <Link to={`/profile/${post.userId}`} style={{textDecoration: "none", color: "inherit"}}>
                                 <span className="name">{post.name}</span>
                             </Link>
 
-                            <span className="date">1m ago</span>
+                            <span className="date">{post.createdAt}</span>
                         </div>
 
                     </div>
@@ -32,8 +35,8 @@ function Post({post}) {
                 </div>
                 <div className='content'>
 
-                    <p>{post.desc}</p>
-                    <img src={post.image} alt=""/>
+                    <p>{post.desc_}</p>
+                    <img src={post.img} alt=""/>
                 </div>
 
 
