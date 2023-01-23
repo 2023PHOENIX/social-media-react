@@ -36,7 +36,7 @@ function Post({post}) {
                 <div className='content'>
 
                     <p>{post.desc_}</p>
-                    <img src={post.img} alt=""/>
+                    <img src={"./upload/" + post.img} alt=""/>
                 </div>
 
 
@@ -53,7 +53,7 @@ function Post({post}) {
                         <ShareIcon/>
                     </div>
                 </div>
-                {commentBar && <Comments/>}
+                {commentBar && <Comments postID={post.unqiueID}/>}
             </div>
         </div>
     )

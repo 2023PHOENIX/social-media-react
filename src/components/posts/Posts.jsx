@@ -15,7 +15,6 @@ function Posts() {
         }), {keepPreviousData: false},
     );
 
-
     //TODO: give some loading page to render if needed
     return (
         <div className="posts">
