@@ -5,6 +5,7 @@
     justify-content: flex-start ;
   @include themify($themes) {
     .write{
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -22,7 +23,7 @@
             border : 1px solid themed("border");
             background-color: transparent;
             padding: 10px;
-            color : themed('color');
+            color : themed('textColor');
             border-radius: 10px;
         }
     }
