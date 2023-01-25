@@ -23,7 +23,7 @@ function Comments({postID}) {
         {
             onSuccess: () => {
                 // Invalidate and refetch
-                queryClient.invalidateQueries(["posts"]);
+                queryClient.invalidateQueries(["comments"]);
             },
         }
     );
@@ -34,7 +34,7 @@ function Comments({postID}) {
         setDesc("");
     };
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className='comments'>

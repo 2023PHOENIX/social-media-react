@@ -8,24 +8,45 @@ import {useContext, useState} from "react";
 import TextsmsOutlinedIcon from '@mui/icons-material/TextsmsOutlined';
 import Comments from "../comments/Comments";
 import {makeRequest} from "../../axios.js";
-import {useQuery} from "react-query";
+import {useMutation, useQuery, useQueryClient} from "react-query";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import {FavoriteBorderRounded} from "@mui/icons-material";
 
 function Post({post}) {
-    const [Liked, setLiked] = useState(false);
     const [commentBar, setCommentBar] = useState(false);
 
     const {currentUser} = useContext(AuthContext);
 
-    const {isLoading, error, data} = useQuery(["likes",post.uniqueID], () =>
+    const {isLoading, error, data} = useQuery(["likes", post.uniqueID], () =>
 
         makeRequest.get("/likes?postID=" + post.uniqueID).then((res) => {
             return res.data;
         })
     );
 
-    console.log(data,currentUser.userID);
+    const queryClient = useQueryClient();
+
+    const mutation = useMutation(
+        (liked) => {
+            if (liked) {
+
+                return makeRequest.delete("/likes?postID=" + post.uniqueID);
+            } else {
+                return makeRequest.post("/likes", {postID: post.uniqueID});
+            }
+        },
+        {
+            onSuccess: () => {
+                // Invalidate and refetch
+                queryClient.invalidateQueries(["likes"]);
+            },
+        }
+    );
+
+
+    const handleLike = () => {
+        mutation.mutate(data.includes(currentUser.userID, 0))
+    }
 
     return (
         <div className="post">
@@ -54,14 +75,16 @@ function Post({post}) {
 
                 <div className="info">
                     <div className="item">
-                        {!isLoading && data.includes(currentUser.userID ,0) ? <FavoriteRoundedIcon style={{color : 'red'}}/> : <FavoriteBorderRoundedIcon/>}
+                        {!isLoading && data.includes(currentUser.userID, 0) ?
+                            <FavoriteRoundedIcon style={{color: 'red'}} onClick={handleLike}/> :
+                            <FavoriteBorderRoundedIcon onClick={handleLike}/>}
                         {data ? data.length : 0}
                     </div>
                     <div className="item">
                         <TextsmsOutlinedIcon onClick={() => {
                             setCommentBar(!commentBar)
                         }}/>
-                        27 comments
+                     
                     </div>
                     <div className="item">
                         <ShareIcon/>
