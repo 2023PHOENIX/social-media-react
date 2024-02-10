@@ -28,4 +28,5 @@
 ![image](https://user-images.githubusercontent.com/55507908/214535484-65bba04d-52b7-4ab2-8aab-1c866942a29b.png)
 
 
-
+Please add some more details which tech you use and live link of you project 
+how to install in local pc if you don't provide any live link
